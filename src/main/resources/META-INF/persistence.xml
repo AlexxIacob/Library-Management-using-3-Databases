@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+
+
+    <persistence-unit name="PU_Oracle" transaction-type="JTA">
+        <jta-data-source>java:/OracleDS</jta-data-source>
+
+
+        <class>org.model.grade</class>
+        <class>org.model.enrollment</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+    <persistence-unit name="PU_Postgres" transaction-type="JTA">
+        <jta-data-source>java:/PostgresDS</jta-data-source>
+
+
+        <class>org.model.student</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+    <persistence-unit name="PU_MSSQL" transaction-type="JTA">
+        <jta-data-source>java:/MSSQLDS</jta-data-source>
+
+
+        <class>org.model.course</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
